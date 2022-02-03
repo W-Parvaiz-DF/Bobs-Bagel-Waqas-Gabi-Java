@@ -26,6 +26,7 @@ public class Basket {
             System.out.println("Cannot add item already added.");
         }
         if(basket.size() < capacity) {
+            System.out.println(item.getPrice());
             basket.add(item);
         }
 
@@ -37,6 +38,16 @@ public class Basket {
             System.out.println("Cannot remove item that's not in basket.");
         }
 
+    }
+
+    public int getTotal() {
+        int total = 0;
+        for (int i=0; i < this.basket.size(); i++) {
+            Items item = basket.get(i);
+            int price = item.getPrice();
+            total += price;
+        }
+        return total;
     }
 
 }
